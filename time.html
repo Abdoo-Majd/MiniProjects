@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker</title>
+</head>
+<body>
+    <div id="message"></div>
+
+    <script>
+        const date = Date ; 
+        console.log(date);
+        // Function to get the current timestamp
+        function getCurrentTimestamp() {
+            return Math.floor(Date.now() / 1000); // Convert to seconds
+        }
+
+        // Function to update the message
+        function updateMessage() {
+            const lastVisitedTimestamp = parseInt(localStorage.getItem('lastVisitedTimestamp'), 10);
+            if (!isNaN(lastVisitedTimestamp)) {
+                const currentTime = getCurrentTimestamp();
+                const timeDifference = currentTime - lastVisitedTimestamp;
+
+                // Display the appropriate message based on the time difference
+                if (timeDifference <= 60) {
+                    document.getElementById('message').textContent = `il y a ${timeDifference}min`;
+                } else if (timeDifference <= 3600) {
+                    document.getElementById('message').textContent = `il y a ${Math.floor(timeDifference / 60)}min`;
+                } else {
+                    document.getElementById('message').textContent = `il y a ${Math.floor(timeDifference / 3600)} heures`;
+                }
+            } else {
+                document.getElementById('message').textContent = 'Welcome!';
+            }
+
+            // Update the last visited timestamp
+            localStorage.setItem('lastVisitedTimestamp', getCurrentTimestamp());
+        }
+
+        // Call the updateMessage function when the page loads
+        updateMessage();
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* Fonts */ 
+  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+a{text-decoration: none;color: black;}
+ul{list-style-type: none;}
+
+/* Body */ 
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-weight: bold;
+    text-align: center;
+    padding: 3rem;
+    transition: 0.5s background-color linear;
+
+}
+h1{width: 100%;}
+button{
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: beige;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    padding: 0.7rem;
+    transition: 0.1s transform linear;
+}
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+body.dark {
+    background-color:black;
+    color: white;
+    transition: 0.5s background-color linear;
+
+}
+body.dark label {
+    background-color: white;
+    transition: 0.5s background-color linear;
+
+}
+body.dark label i {color:black}
+label{
+    user-select: none;
+    width: 50px;
+    height: 50px;
+    background: black;
+    display: inline-flex;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s background-color linear;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input{visibility: hidden;}
+i{
+    color: white;
+    font-size: 20px;
+    transition: 0.3s color linear;
+
+}
